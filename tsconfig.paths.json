@@ -7,7 +7,7 @@
       "@api/*": ["./api/*"],
       "@routes/*": ["./routes/*"],
       "@styles/*": ["./styles/*"],
-      "@types/*": ["./types/*"],
+      "@typess/*": ["./types/*"],
       "@utils/*": ["./utils/*"],
       "@store/*": ["./store/*"],
       "@assets/*": ["./assets/*"],
