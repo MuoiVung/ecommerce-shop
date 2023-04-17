@@ -1,16 +1,20 @@
-import { Header } from "@components/Header";
 import { ThemeProvider } from "@emotion/react";
 import { CssBaseline } from "@mui/material";
+import { MainRoutes } from "@routes/MainRoutes";
 import theme from "@styles/theme.style";
+import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
+import store from "./store";
 
 function App() {
   return (
     <BrowserRouter>
-      <CssBaseline />
-      <ThemeProvider theme={theme}>
-        <Header />
-      </ThemeProvider>
+      <Provider store={store}>
+        <CssBaseline />
+        <ThemeProvider theme={theme}>
+          <MainRoutes />
+        </ThemeProvider>
+      </Provider>
     </BrowserRouter>
   );
 }

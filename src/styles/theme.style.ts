@@ -1,4 +1,4 @@
-import { COLORS, FONT_WEIGHT, LINE_HEIGHT } from "../constants/themeConfig";
+import { COLORS, FONT_WEIGHT, LINE_HEIGHT } from "../constants/theme.constant";
 import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
@@ -23,8 +23,8 @@ const theme = createTheme({
     fontSize: 16,
     button: {
       fontSize: "1.5rem",
-      fontWeight: LINE_HEIGHT.NORMAL,
-      lineHeight: FONT_WEIGHT.BOLD,
+      fontWeight: FONT_WEIGHT.BOLD,
+      lineHeight: LINE_HEIGHT.NORMAL,
     },
     h1: {
       fontSize: "4.25rem",

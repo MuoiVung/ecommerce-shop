@@ -5,7 +5,7 @@ export type UserType = {
   password: string;
   contact: null;
   avatar: null;
-  role: string;
+  role: RoleType;
   isEmailVerified: boolean;
   isContactVerified: boolean;
   isActive: boolean;
@@ -33,3 +33,5 @@ export interface TokenDataType {
   token: string;
   expires: string;
 }
+
+export type RoleType = "admin" | "user";

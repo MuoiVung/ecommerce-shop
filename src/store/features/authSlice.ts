@@ -1,7 +1,9 @@
+import { UserType } from "./../../types/auth.type";
+
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { encryptData, sessionEncryptData } from "@utils/CustomCryptoJS.util";
 import { RootState } from "..";
-import { AuthStateType, CredentialType, UserType } from "../../types/auth.type";
+import { AuthStateType, CredentialType } from "../../types/auth.type";
 
 const initialState: AuthStateType = {
   user: null,
