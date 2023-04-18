@@ -6,7 +6,9 @@ export const NavbarWrapper = () => {
   return (
     <Box component="main">
       <Navbar />
-      <Outlet />
+      <Box mt="250px">
+        <Outlet />
+      </Box>
     </Box>
   );
 };

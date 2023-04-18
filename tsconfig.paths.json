@@ -11,7 +11,8 @@
       "@utils/*": ["./utils/*"],
       "@store/*": ["./store/*"],
       "@assets/*": ["./assets/*"],
-      "@constants/*": ["./constants/*"]
+      "@constants/*": ["./constants/*"],
+      "@customHooks/*": ["./hooks/*"]
     }
   }
 }
