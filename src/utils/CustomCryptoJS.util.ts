@@ -2,12 +2,17 @@ import CryptoJS from "crypto-js";
 
 const SECRET_KEY = process.env.REACT_APP_SECRET_KEY || "";
 
-const encryptData = (name: string, data: any) => {
+const encryptAndSaveData = (name: string, data: any) => {
   const encrypted = CryptoJS.AES.encrypt(
     JSON.stringify(data),
     SECRET_KEY
   ).toString();
   localStorage.setItem(name, encrypted);
+  return encrypted;
+};
+
+const encryptAndReturnKey = (key: string) => {
+  return CryptoJS.AES.encrypt(JSON.stringify(key), SECRET_KEY).toString();
 };
 
 const decryptData = (name: string) => {
@@ -46,4 +51,10 @@ const sessionDecryptData = (name: string) => {
   return JSON.parse(decrypted);
 };
 
-export { encryptData, decryptData, sessionEncryptData, sessionDecryptData };
+export {
+  encryptAndSaveData,
+  decryptData,
+  sessionEncryptData,
+  sessionDecryptData,
+  encryptAndReturnKey,
+};

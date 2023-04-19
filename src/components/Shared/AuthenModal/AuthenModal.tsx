@@ -12,11 +12,9 @@ import {
   LoginFormType,
   RegisterFormType,
 } from "@typess/form.type";
-import { useState } from "react";
 import useAuthentication from "../../../hooks/useAuthentication";
 import { CustomForm } from "../CustomForm";
 import {
-  FORM_TYPE,
   forgotPasswordDefaultValues,
   forgotPasswordFields,
   forgotPasswordSchema,

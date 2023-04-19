@@ -1,21 +1,16 @@
-import { ThemeProvider } from "@emotion/react";
-import { CssBaseline } from "@mui/material";
-import { MainRoutes } from "@routes/MainRoutes";
-import theme from "@styles/theme/theme.style";
-import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
-import store from "./store";
+import CircularSpinner from "@components/Shared/CircularSpinner/CircularSpinner";
+import { selectLoadingStatus } from "@store/features/loadingSlice";
+import { MainRoutes } from "./routes";
+import { useTypedSelector } from "./store";
 
 function App() {
+  const globalLoading = useTypedSelector(selectLoadingStatus);
+
   return (
-    <BrowserRouter>
-      <Provider store={store}>
-        <CssBaseline />
-        <ThemeProvider theme={theme}>
-          <MainRoutes />
-        </ThemeProvider>
-      </Provider>
-    </BrowserRouter>
+    <>
+      <MainRoutes />
+      <CircularSpinner isLoading={globalLoading} />
+    </>
   );
 }
 

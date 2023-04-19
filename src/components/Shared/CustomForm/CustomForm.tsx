@@ -39,16 +39,22 @@ export const CustomForm = <T extends FormData>({
   const {
     handleSubmit,
     register,
+    reset,
     formState: { errors },
   } = useForm<T>({
     resolver: yupResolver(validationSchema),
     defaultValues: defaultValues,
   });
 
-  const onError = (errors: any, e: any) => console.log(errors, e);
+  const submitForm = async (data: T) => {
+    try {
+      await onSubmitForm(data);
+      reset();
+    } catch (error) {}
+  };
 
   return (
-    <Box component="form" onSubmit={handleSubmit(onSubmitForm, onError)}>
+    <Box component="form" onSubmit={handleSubmit(submitForm)}>
       {fields.map((field) => (
         <StyledTextField
           variant="filled"

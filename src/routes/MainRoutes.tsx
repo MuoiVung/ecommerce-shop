@@ -12,15 +12,16 @@ import { useAppDispatch, useTypedSelector } from "@store/index";
 import { AuthStateType } from "@typess/auth.type";
 import { decryptData, sessionDecryptData } from "@utils/CustomCryptoJS.util";
 
+import { NavbarWrapper } from "@components/Layout/NavbarWrapper";
 import { RequireAuth } from "@components/Routes/RequireAuth";
 import { ROLE } from "@constants/auth.constant";
+import { ShoppingCart } from "@mui/icons-material";
 import { AdminPage } from "@pages/AdminPage";
+import { CheckoutPage } from "@pages/CheckoutPage";
 import HomePage from "@pages/HomePage";
 import NotFoundPage from "@pages/NotFoundPage";
-import { NavbarWrapper } from "@components/Layout/NavbarWrapper";
 import { ProductDetailPage } from "@pages/ProductDetailPage";
-import { ShoppingCart } from "@mui/icons-material";
-import { CheckoutPage } from "@pages/CheckoutPage";
+import UserDetailPage from "@pages/UserDetailPage";
 
 export const MainRoutes = () => {
   const user = useTypedSelector(selectCurrentUser);
@@ -68,13 +69,18 @@ export const MainRoutes = () => {
         <Route path={PATH.PRODUCT_DETAIL} element={<ProductDetailPage />} />
       </Route>
 
+      {/* ADMIN & USER ROUTES */}
+      <Route element={<RequireAuth allowedRoles={["admin", "user"]} />}>
+        <Route path={PATH.USER_DETAIL} element={<UserDetailPage />} />
+      </Route>
+
       {/* ADMIN ROUTES */}
-      <Route element={<RequireAuth allowedRole="admin" />}>
+      <Route element={<RequireAuth allowedRoles={["admin"]} />}>
         <Route path={PATH.ADMIN} element={<AdminPage />} />
       </Route>
 
       {/* USER ROUTES */}
-      <Route element={<RequireAuth allowedRole="user" />}>
+      <Route element={<RequireAuth allowedRoles={["user"]} />}>
         <Route path={PATH.SHOPPING_CART} element={<ShoppingCart />} />
         <Route path={PATH.SHOPPING_CART} element={<CheckoutPage />} />
       </Route>
@@ -84,7 +90,3 @@ export const MainRoutes = () => {
     </Routes>
   );
 };
-
-// layout user: navbar + content screen
-// layout admin: sidebar + content screen
-// ADMIN => NO, !== ADMIN => OK

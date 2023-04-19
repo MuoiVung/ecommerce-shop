@@ -1,3 +1,4 @@
+import { StyledNoteTypo } from "@styles/shared/AuthenModal.style";
 import {
   ForgotPasswordFormType,
   LoginFormType,
@@ -5,8 +6,6 @@ import {
 } from "@typess/form.type";
 import * as yup from "yup";
 import { FormFieldProps } from "../CustomForm/CustomForm";
-import { Typography } from "@mui/material";
-import { StyledNoteTypo } from "@styles/shared/AuthenModal.style";
 
 export const FORM_TYPE = {
   REGISTER: "register",
@@ -91,18 +90,10 @@ export const loginSchema: yup.ObjectSchema<LoginFormType> = yup
 //   FORGOT PASSWORD
 export const forgotPasswordDefaultValues: ForgotPasswordFormType = {
   email: "",
-  code: "",
 };
 
 export const forgotPasswordFields: FormFieldProps[] = [
   { name: "email", label: "Email", type: "email", required: true },
-  {
-    name: "code",
-    label: "Code",
-    type: "text",
-    required: true,
-    inputAdornment: <StyledNoteTypo>Send Code</StyledNoteTypo>,
-  },
 ];
 
 export const forgotPasswordSchema: yup.ObjectSchema<ForgotPasswordFormType> =
@@ -113,6 +104,5 @@ export const forgotPasswordSchema: yup.ObjectSchema<ForgotPasswordFormType> =
         .email("Email is invalid")
         .max(100, "Email must be less than 100 characters")
         .required("Email is required"),
-      code: yup.string().required("Code is required"),
     })
     .required();

@@ -12,5 +12,5 @@ export type LoginFormType = {
 
 export type ForgotPasswordFormType = {
   email: string;
-  code: string;
+  // code: string;
 };
