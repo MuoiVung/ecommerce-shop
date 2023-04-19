@@ -1,22 +1,10 @@
-export type UserType = {
-  id: number;
-  username: string;
-  email: string;
-  password: string;
-  contact: null;
-  avatar: null;
-  role: RoleType;
-  isEmailVerified: boolean;
-  isContactVerified: boolean;
-  isActive: boolean;
-  createdAt: string;
-  updatedAt: string;
-};
+import { UserType } from "./authApi.type";
 
 export type AuthStateType = {
   user: UserType | null;
   accessToken: string | null;
   refreshToken: string | null;
+  deviceId: string | null;
 };
 
 export type CredentialType = {

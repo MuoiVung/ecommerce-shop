@@ -6,13 +6,13 @@ import { RoleType } from "@typess/auth.type";
 import { Navigate, Outlet } from "react-router-dom";
 
 type RequireAuthProps = {
-  allowedRole?: RoleType;
+  allowedRoles?: RoleType[];
 };
 
-export const RequireAuth = ({ allowedRole }: RequireAuthProps) => {
+export const RequireAuth = ({ allowedRoles }: RequireAuthProps) => {
   const user = useTypedSelector(selectCurrentUser);
 
-  return user?.role === allowedRole && user ? (
+  return user?.role && allowedRoles?.includes(user.role) ? (
     <Wrapper>
       <Outlet />
     </Wrapper>

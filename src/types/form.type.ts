@@ -1,5 +1,3 @@
-export {};
-
 export type RegisterFormType = {
   username: string;
   email: string;
@@ -12,7 +10,7 @@ export type LoginFormType = {
   password: string;
 };
 
-export type ForgotPasswordType = {
+export type ForgotPasswordFormType = {
   email: string;
-  code: string;
+  // code: string;
 };

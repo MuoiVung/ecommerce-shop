@@ -6,4 +6,5 @@ export const PATH = {
   SHOPPING_CART: "shopping-cart",
   CHECKOUT: "checkout",
   ALL_ROUTES: "*",
+  USER_DETAIL: "user-detail",
 };
