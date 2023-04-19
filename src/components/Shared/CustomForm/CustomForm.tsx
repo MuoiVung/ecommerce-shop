@@ -1,14 +1,9 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Box, Button, TextField } from "@mui/material";
+import { Box, Button, InputAdornment } from "@mui/material";
 import { StyledTextField } from "@styles/shared/CustomForm.style";
 
 import { ReactNode } from "react";
-import {
-  SubmitHandler,
-  useForm,
-  Controller,
-  DeepPartial,
-} from "react-hook-form";
+import { DeepPartial, SubmitHandler, useForm } from "react-hook-form";
 
 import * as yup from "yup";
 
@@ -16,19 +11,21 @@ type FormData = Record<string, unknown> & {
   [key: string]: string;
 };
 
-type FieldProps = {
+export type FormFieldProps = {
   name: keyof FormData;
   label: string;
   type: string;
   required?: boolean;
+  inputAdornment?: ReactNode;
 };
 
 interface Props<T extends FormData> {
   onSubmitForm: SubmitHandler<T>;
   defaultValues: DeepPartial<T>;
   validationSchema: yup.AnyObjectSchema;
-  fields: FieldProps[];
+  fields: FormFieldProps[];
   children?: ReactNode;
+  onClickIcon?: () => void;
 }
 
 export const CustomForm = <T extends FormData>({
@@ -37,6 +34,7 @@ export const CustomForm = <T extends FormData>({
   validationSchema,
   onSubmitForm,
   children,
+  onClickIcon,
 }: Props<T>) => {
   const {
     handleSubmit,
@@ -62,11 +60,17 @@ export const CustomForm = <T extends FormData>({
           helperText={errors[field.name]?.message as any}
           autoComplete="true"
           {...register(field.name.toString() as any)}
-          margin="normal"
           fullWidth
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <Button onClick={onClickIcon}>{field.inputAdornment}</Button>
+              </InputAdornment>
+            ),
+          }}
         />
       ))}
-      <Box>{children}</Box>
+      <Box mt="24px">{children}</Box>
     </Box>
   );
 };
