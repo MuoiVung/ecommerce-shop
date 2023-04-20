@@ -10,7 +10,7 @@ const theme = createTheme({
     primary: {
       main: COLORS.YELLOW,
       "400": COLORS.YELLOW_400,
-      "600": COLORS.YELLOW_600,
+      "600": COLORS.YELLOW_800,
       contrastText: COLORS.BLACK,
     },
     text: {
@@ -52,11 +52,31 @@ const theme = createTheme({
       fontWeight: FONT_WEIGHT.BOLD,
       lineHeight: LINE_HEIGHT.TITLE,
     },
+    h3: {
+      fontSize: "2rem",
+      fontWeight: FONT_WEIGHT.BOLD,
+      lineHeight: LINE_HEIGHT.NORMAL,
+    },
     h4: {
       fontSize: "1.5rem",
       fontWeight: FONT_WEIGHT.BOLD,
       lineHeight: LINE_HEIGHT.NORMAL,
       textTransform: "capitalize",
+    },
+    h5: {
+      fontSize: "1.375rem",
+      fontWeight: FONT_WEIGHT.BOLD,
+      lineHeight: LINE_HEIGHT.NORMAL,
+      textTransform: "capitalize",
+    },
+    subtitle1: {
+      fontSize: "0.875rem",
+      lineHeight: LINE_HEIGHT.NORMAL,
+    },
+    subtitle2: {
+      fontSize: "1rem",
+      lineHeight: LINE_HEIGHT.NORMAL,
+      fontWeight: FONT_WEIGHT.BOLD,
     },
   },
   components: {

@@ -1,1 +1,3 @@
-export { default } from "./CircularSpinner";
+import { CircularSpinner } from "./CircularSpinner";
+
+export { CircularSpinner };

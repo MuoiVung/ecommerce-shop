@@ -1,4 +1,6 @@
 import { AuthenModal } from "@components/Shared/AuthenModal";
+import { PATH } from "@constants/route.constant";
+import { FONT_FAMILY } from "@constants/theme.constant";
 import {
   Box,
   Button,
@@ -16,15 +18,13 @@ import {
   NavigateToolbar,
   StyledAppBar,
 } from "@styles/layout/Navbar.style";
-import useAuthentication from "../../hooks/useAuthentication";
 import { Link } from "react-router-dom";
+import useAuthentication from "../../hooks/useAuthentication";
+import useModal from "../../hooks/useModal";
 import { SearchNavbar } from "./SearchNavbar";
-import { PATH } from "@constants/route.constant";
-import { COLORS, FONT_FAMILY } from "@constants/theme.constant";
 
 export const Navbar = () => {
-  const { showAuthenModal, handleCloseAuthenModal, handleOpenAuthenModal } =
-    useAuthentication();
+  const { handleCloseModal, showModal, handleOpenModal } = useModal();
 
   const deviceId = useTypedSelector(selectDeviceId);
 
@@ -61,7 +61,7 @@ export const Navbar = () => {
               </Button>
               <SearchNavbar />
               {!deviceId && (
-                <IconButton onClick={handleOpenAuthenModal}>
+                <IconButton onClick={handleOpenModal}>
                   <img
                     src={require("../../assets/imgs/cart.png")}
                     width={40}
@@ -80,7 +80,7 @@ export const Navbar = () => {
                 </IconButton>
               )}
               {!deviceId && (
-                <IconButton onClick={handleOpenAuthenModal}>
+                <IconButton onClick={handleOpenModal}>
                   <img
                     src={require("../../assets/imgs/user.png")}
                     width={40}
@@ -101,7 +101,7 @@ export const Navbar = () => {
           </Container>
         </MainToolbar>
       </StyledAppBar>
-      <AuthenModal open={showAuthenModal} onClose={handleCloseAuthenModal} />
+      {showModal && <AuthenModal open={showModal} onClose={handleCloseModal} />}
     </Box>
   );
 };

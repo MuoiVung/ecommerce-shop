@@ -1,5 +1,6 @@
 export const COLORS = {
-  YELLOW_600: "#866C0C",
+  YELLOW_700: "#B59628",
+  YELLOW_800: "#866C0C",
   YELLOW: "#FFD333",
   YELLOW_400: "#FAF096",
   BLACK: "#000000",
@@ -13,6 +14,13 @@ export const COLORS = {
   BROWN_300: "#F0E9E9",
   BROWN_700: "#5B5B5B",
   WHITE: "#fff",
+  BLUE: "#3D464D",
+  RED: "#D70000",
+  RED_50: "rgb(215, 0, 0, 50%)",
+  GREEN_50: "rgba(0, 167, 17,50%)",
+  BORDER: "#B4B1B1",
+  BORDER_GREEN_50: "rgba(0, 202, 20, 50%)",
+  BORDER_RED_50: "rgba(180, 1, 1, 50%)",
 };
 
 export const LINE_HEIGHT = {
@@ -27,4 +35,21 @@ export const FONT_WEIGHT = {
 export const FONT_FAMILY = {
   ROBOTO: "Roboto, sans-serif",
   RED_ROSE: "Red Rose, cursive",
+};
+
+export const ICON = {
+  MENU: require("@assets/imgs/menu.png"),
+  MENU_WHITE: require("@assets/imgs/menu-white.png"),
+  ARROW: require("@assets/imgs/arrow.png"),
+  ITEM_CART: require("@assets/imgs/item-cart.png"),
+  ADD_CART: require("@assets/imgs/add-cart.png"),
+};
+
+export const IMAGE = {
+  BACKGROUND: require("@assets/imgs/homeBg.png"),
+  PRODUCT: require("@assets/imgs/product.png"),
+};
+
+export const BORDER_RADIUS = {
+  SMALL: "5px",
 };

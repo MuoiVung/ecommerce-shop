@@ -17,7 +17,11 @@ import { useCallback, useState } from "react";
 
 type AuthenModalType = "register" | "login" | "forgot";
 
-const useAuthentication = () => {
+type UseAuthenticationType = {
+  onCloseModal: () => void;
+};
+
+const useAuthentication = ({ onCloseModal }: UseAuthenticationType) => {
   const [modalType, setModalType] = useState<AuthenModalType>("login");
   const [showAuthenModal, setShowAuthenModal] = useState(false);
 
@@ -66,14 +70,16 @@ const useAuthentication = () => {
     try {
       dispatch(enableLoading);
       const result = await login(loginFormData).unwrap();
+      handleCloseAuthenModal();
+
       dispatch(
         setCredentials({
           authState: result,
           isRemember: true,
         })
       );
+      onCloseModal();
       toast.success("Login successfully!");
-      handleCloseAuthenModal();
     } catch (error) {
       toast.error("Failed to Login!");
       throw new Error("Failed to Login!");

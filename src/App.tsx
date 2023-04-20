@@ -1,4 +1,4 @@
-import CircularSpinner from "@components/Shared/CircularSpinner/CircularSpinner";
+import { CircularSpinner } from "@components/Shared/CircularSpinner";
 import { selectLoadingStatus } from "@store/features/loadingSlice";
 import { MainRoutes } from "./routes";
 import { useTypedSelector } from "./store";

@@ -2,10 +2,8 @@ import { Box } from "@mui/system";
 import { selectCurrentUser } from "@store/features/authSlice";
 import { useTypedSelector } from "@store/index";
 
-import { Sidebar } from "./Sidebar";
 import { Navbar } from "./Navbar";
-import { Stack } from "@mui/material";
-import { AuthenModal } from "@components/Shared/AuthenModal";
+import { Sidebar } from "./Sidebar";
 
 export const Wrapper = ({ children }: { children?: React.ReactNode }) => {
   const user = useTypedSelector(selectCurrentUser);
@@ -21,7 +19,7 @@ export const Wrapper = ({ children }: { children?: React.ReactNode }) => {
       {user?.role === "user" && (
         <>
           <Navbar />
-          <Box mt={120}>{children}</Box>
+          <Box mt="210px">{children}</Box>
         </>
       )}
     </Box>

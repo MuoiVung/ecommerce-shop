@@ -20,7 +20,6 @@ export const NavigateButton = styled(Button)(({ theme }) => ({
 }));
 
 export const StyledAppBar = styled(AppBar)(({ theme }) => ({
-  marginTop: 13,
   backgroundColor: theme.palette.common.white,
 }));
 

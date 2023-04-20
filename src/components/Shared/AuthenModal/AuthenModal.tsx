@@ -39,7 +39,7 @@ export const AuthenModal = ({ open, onClose }: Props) => {
     handleLogin,
     handleForgotPassword,
     handleGetCode,
-  } = useAuthentication();
+  } = useAuthentication({ onCloseModal: onClose });
 
   return (
     <Modal open={open} onClose={onClose}>
