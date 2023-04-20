@@ -5,7 +5,7 @@ type Props = {
   isLoading: boolean;
 };
 
-const CircularSpinner = ({ isLoading }: Props) => {
+export const CircularSpinner = memo(({ isLoading }: Props) => {
   return (
     <Backdrop
       open={isLoading}
@@ -17,6 +17,4 @@ const CircularSpinner = ({ isLoading }: Props) => {
       <CircularProgress color="primary" />
     </Backdrop>
   );
-};
-
-export default memo(CircularSpinner);
+});
