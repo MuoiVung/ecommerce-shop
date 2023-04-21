@@ -5,6 +5,12 @@ export const StyledProductCard = styled(Box)(({ theme }) => ({
   border: `1px solid ${COLORS.BORDER}`,
   padding: "24px 24px 16px 24px",
   borderRadius: BORDER_RADIUS.SMALL,
+  "&:hover": {
+    borderColor: theme.palette.primary.main,
+    cursor: "pointer",
+    transform: "translate(0,-1%)",
+    transition: "all .15s ease-in-out",
+  },
 }));
 
 export const StyledAvailable = styled(Typography)(({ theme }) => ({

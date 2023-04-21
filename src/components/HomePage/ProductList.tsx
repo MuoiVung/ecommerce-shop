@@ -1,16 +1,8 @@
 import { useGetAllProductsQuery } from "@api/product.api";
 import { ProductCard } from "@components/Shared/ProductCard";
-import { IMAGE } from "@constants/theme.constant";
-import {
-  Box,
-  Button,
-  Grid,
-  Pagination,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Box, Grid, Pagination, Stack, Typography } from "@mui/material";
 import { StyledShowMoreButton } from "@styles/pages/HomePage.style";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent } from "react";
 
 type ProductListProps = {
   selectedCategory: string;

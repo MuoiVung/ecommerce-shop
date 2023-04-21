@@ -1,10 +1,10 @@
 export const PATH = {
-  ADMIN: "admin",
-  HOME: "home",
-  NOT_FOUND: "not-found",
-  PRODUCT_DETAIL: "product-detail",
-  SHOPPING_CART: "shopping-cart",
-  CHECKOUT: "checkout",
+  ADMIN: "/admin",
+  HOME: "/home",
+  NOT_FOUND: "/not-found",
+  PRODUCT_DETAIL: "/products/:productId",
+  SHOPPING_CART: "/shopping-cart",
+  CHECKOUT: "/checkout",
   ALL_ROUTES: "*",
-  USER_DETAIL: "user-detail",
+  USER_DETAIL: "/user-detail",
 };

@@ -14,6 +14,8 @@ export const COLORS = {
   BROWN_300: "#F0E9E9",
   BROWN_700: "#5B5B5B",
   WHITE: "#fff",
+  WHITE_500: "#FFFBFB",
+  BLACK_600: "#595959",
   BLUE: "#3D464D",
   RED: "#D70000",
   RED_50: "rgb(215, 0, 0, 50%)",

@@ -19,7 +19,6 @@ import {
   StyledAppBar,
 } from "@styles/layout/Navbar.style";
 import { Link } from "react-router-dom";
-import useAuthentication from "../../hooks/useAuthentication";
 import useModal from "../../hooks/useModal";
 import { SearchNavbar } from "./SearchNavbar";
 

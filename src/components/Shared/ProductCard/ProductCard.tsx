@@ -18,6 +18,7 @@ import {
   StyledAvailable,
   StyledProductCard,
 } from "@styles/shared/ProductCard.style";
+import { useNavigate } from "react-router-dom";
 
 type ProductCardProps = {
   img: string;
@@ -38,8 +39,14 @@ export const ProductCard = ({
   isAvailable = true,
   sale,
 }: ProductCardProps) => {
+  const navigate = useNavigate();
+
+  const handleProductCard = () => {
+    navigate(`/products/${id}`, { state: { productId: id } });
+  };
+
   return (
-    <StyledProductCard>
+    <StyledProductCard onClick={handleProductCard}>
       <Paper
         elevation={6}
         sx={{

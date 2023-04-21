@@ -38,7 +38,6 @@ export const AuthenModal = ({ open, onClose }: Props) => {
     handleRegister,
     handleLogin,
     handleForgotPassword,
-    handleGetCode,
   } = useAuthentication({ onCloseModal: onClose });
 
   return (
@@ -107,7 +106,6 @@ export const AuthenModal = ({ open, onClose }: Props) => {
                 onSubmitForm={handleForgotPassword}
                 fields={forgotPasswordFields}
                 validationSchema={forgotPasswordSchema}
-                onClickIcon={handleGetCode}
               >
                 <Button type="submit" variant="contained" fullWidth>
                   Recover Password

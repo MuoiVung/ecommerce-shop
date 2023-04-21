@@ -13,12 +13,12 @@ export interface GetAllProductsResponse {
 
 export interface GetAllProductsData {
   total: number;
-  result: ProductData[];
+  result: IProductData[];
   totalPages: number;
   currentPage: number;
 }
 
-interface ProductData {
+interface IProductData {
   id: number;
   name: string;
   brand: string;
@@ -44,4 +44,24 @@ export interface GetAllCategoriesResponse {
   status: number;
   message: string;
   data: string[];
+}
+
+// GET PRODUCT DETAIL
+export interface IGetProductDetailResponse {
+  status: number;
+  message: string;
+  data: IGetProductDetailData;
+}
+
+export interface IGetProductDetailData {
+  product: IProductData;
+  reivews: IReviewsData;
+}
+
+//  NOTES: review result type
+interface IReviewsData {
+  total: number;
+  result: any[];
+  totalPages: number;
+  currentPage: number;
 }

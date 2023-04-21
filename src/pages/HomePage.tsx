@@ -27,9 +27,9 @@ function HomePage() {
     []
   );
 
-  const handleSelectAll = useCallback(() => {
+  const handleSelectAll = () => {
     setSelectedCategory("");
-  }, []);
+  };
 
   return (
     <Container>

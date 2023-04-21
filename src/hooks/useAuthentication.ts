@@ -13,7 +13,7 @@ import {
   LoginFormType,
   RegisterFormType,
 } from "@typess/form.type";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 
 type AuthenModalType = "register" | "login" | "forgot";
 
@@ -33,40 +33,37 @@ const useAuthentication = ({ onCloseModal }: UseAuthenticationType) => {
 
   const [resetPassword] = useResetPasswordMutation();
 
-  const handleSwitchModal = useCallback((newModalType: AuthenModalType) => {
+  const handleSwitchModal = (newModalType: AuthenModalType) => {
     setModalType(newModalType);
-  }, []);
+  };
 
-  const handleOpenAuthenModal = useCallback(() => {
+  const handleOpenAuthenModal = () => {
     setShowAuthenModal(true);
-  }, []);
+  };
 
-  const handleCloseAuthenModal = useCallback(() => {
+  const handleCloseAuthenModal = () => {
     setShowAuthenModal(false);
-  }, []);
+  };
 
-  const handleRegister = useCallback(
-    async (registerFormData: RegisterFormType) => {
-      try {
-        dispatch(enableLoading);
-        await register({
-          email: registerFormData.email,
-          username: registerFormData.username,
-          password: registerFormData.password,
-        }).unwrap();
+  const handleRegister = async (registerFormData: RegisterFormType) => {
+    try {
+      dispatch(enableLoading);
+      await register({
+        email: registerFormData.email,
+        username: registerFormData.username,
+        password: registerFormData.password,
+      }).unwrap();
 
-        toast.success("Register successfully!");
-      } catch (error) {
-        toast.error("Failed to Register!");
-        throw new Error("Failed to Register!");
-      } finally {
-        dispatch(disableLoading);
-      }
-    },
-    []
-  );
+      toast.success("Register successfully!");
+    } catch (error) {
+      toast.error("Failed to Register!");
+      throw new Error("Failed to Register!");
+    } finally {
+      dispatch(disableLoading);
+    }
+  };
 
-  const handleLogin = useCallback(async (loginFormData: LoginFormType) => {
+  const handleLogin = async (loginFormData: LoginFormType) => {
     try {
       dispatch(enableLoading);
       const result = await login(loginFormData).unwrap();
@@ -86,28 +83,24 @@ const useAuthentication = ({ onCloseModal }: UseAuthenticationType) => {
     } finally {
       dispatch(disableLoading);
     }
-  }, []);
+  };
 
-  const handleForgotPassword = useCallback(
-    async (forgotPasswordFormData: ForgotPasswordFormType) => {
-      try {
-        console.log(forgotPasswordFormData);
-        dispatch(enableLoading);
-        toast.success("Already sent new password to your email!");
+  const handleForgotPassword = async (
+    forgotPasswordFormData: ForgotPasswordFormType
+  ) => {
+    try {
+      console.log(forgotPasswordFormData);
+      dispatch(enableLoading);
+      toast.success("Already sent new password to your email!");
 
-        await resetPassword(forgotPasswordFormData).unwrap();
-      } catch (error) {
-        toast.error("Failed to reset password!");
-        throw new Error("Failed to reset password!");
-      } finally {
-        dispatch(disableLoading);
-      }
-    },
-
-    []
-  );
-
-  const handleGetCode = useCallback(() => {}, []);
+      await resetPassword(forgotPasswordFormData).unwrap();
+    } catch (error) {
+      toast.error("Failed to reset password!");
+      throw new Error("Failed to reset password!");
+    } finally {
+      dispatch(disableLoading);
+    }
+  };
 
   return {
     modalType,
@@ -115,7 +108,6 @@ const useAuthentication = ({ onCloseModal }: UseAuthenticationType) => {
     handleLogin,
     handleForgotPassword,
     handleSwitchModal,
-    handleGetCode,
     showAuthenModal,
     handleOpenAuthenModal,
     handleCloseAuthenModal,
